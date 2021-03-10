@@ -1,0 +1,17 @@
+h1{
+    text-align: center;
+}
+#Page1{
+    font-size: larger;
+    margin-top: 100px;
+    text-align: center;
+}
+#choosedishP1{
+    margin-bottom: 50px;
+}
+#ResultPage{
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    
+}
