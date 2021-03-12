@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Page3(){ 
+function Result(){ 
     // const [show , setShow] = useState(true)
     // const onSubmit =(event) =>{
     //   event.preventDefault(); }
@@ -9,8 +9,10 @@ return(<>
        <div> Meal                       :</div>
        <div> No. of People                       :</div>
        <div> Restraunt                       :</div>
-       <div>Dishes                        :</div>
-     </div></>
+       <div> Dishes                        :</div>
+     </div>
+     <button class="btn btn-success">Prev</button>
+     </>
 )};
 
-export default Page3;
+export default Result;
