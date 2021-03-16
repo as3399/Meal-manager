@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Page2 from './Page2';
 import data from './dishes.json';
 
-function Page1() {
+function Page1(props) {
   const [showp1, setShowp1] = useState(true);
   const [meal1, setMeal1] = useState([]);
   const [Djson, setDjson ] = useState([]);
