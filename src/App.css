@@ -18,8 +18,21 @@ button{
 #choosedishP1{
     margin-bottom: 50px;
 }
+
+#servings{
+    margin-left: 15px;
+}
 #ResultPage{
-    align-items: center;
-    flex-direction: column;
     display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+
+}
+#container{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+     width: 250px;
+
 }

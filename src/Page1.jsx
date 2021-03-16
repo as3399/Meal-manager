@@ -6,21 +6,23 @@ function Page1() {
   const [showp1, setShowp1] = useState(true);
   const [meal1, setMeal1] = useState([]);
   const [Djson, setDjson ] = useState([]);
-  
+  const [Mydata, setMydata] = useState();
+   
   useEffect(
    function  fetch(){
-    setDjson(data.dishes)
+     setDjson(data.dishes)
    },[]);
-
-  function toggle(event) {
-    event.preventDefault();
-    setShowp1(!showp1);
-  }
-
-  function InputEvent(event){
-    const {id, value} = event.target;
-    setMeal1([...meal1, {[id]: value}]);
-  }
+   
+   function toggle(event) {
+     event.preventDefault();
+     setShowp1(!showp1);
+    }
+    function InputEvent(event){
+      const {id, value} = event.target;
+      setMeal1({...meal1, [id]: value});
+      setMydata({...Mydata, [id]: value});
+    }
+    const Fdata1 = Djson.filter((val) => { return val.availableMeals.includes(meal1.Meal)})
  
   return (<><h1>Meal Manager</h1>
     {showp1 ? <div id="Page1" >
@@ -51,9 +53,10 @@ function Page1() {
         <input type="submit" onClick={toggle} class="btn btn-success " value = "Next"/>
       </form>
     </div> : <Page2
-             Data={Djson}
-             Mymeal = {meal1}/>}
-
+             Fdata =  {Fdata1}
+             Mydatastate = {meal1}
+             setMydata={setMydata}
+             Mydata={Mydata} />}
   </>
   )
 }
