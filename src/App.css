@@ -1,5 +1,11 @@
-h1{
+h1{font-family: 'Berkshire Swash', cursive;
     text-align: center;
+    background-color: rgb(185, 66, 66);
+    padding: 15px;
+    color: #efcccc;
+}
+label{
+    margin-right: 10px
 }
 #Page1{
     font-size: larger;
@@ -7,6 +13,11 @@ h1{
     text-align: center;
 }
 #Page2{
+    font-size: larger;
+    margin-top: 100px;
+    text-align: center;
+}
+#Page3{
     font-size: larger;
     margin-top: 100px;
     text-align: center;
@@ -27,12 +38,81 @@ button{
     flex-direction:column;
     justify-content: center;
     align-items: center;
+    font-size: large;
+    margin-top: 100px;
 
 }
 #container{
     display: flex;
     flex-direction: column;
     justify-content: left;
-     width: 250px;
+     width: 300px; 
 
+}
+.btn-next{
+    position: absolute;
+    bottom: 460px;
+    right: 200px;
+    
+}
+.btn-prev{
+    position: absolute;
+    bottom: 460px;
+    left: 200px;
+    
+}
+.btn-sm{
+    margin-left: 10px;
+}
+.dishcontainer{
+    width: 500px;
+    margin: auto;
+    text-align:left ;
+}
+.dishcontainer li{
+    margin-bottom: 30px;
+}
+.Message{
+    margin-top: 140px;
+    text-align: center;
+}
+.box{
+    width:27px;
+    height: 27px;
+    background-color: black;
+    animation-name: spin;
+    animation-duration: 5000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
+}
+.wait{
+    display:flex; 
+    align-items : center;
+    justify-content: center;
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+.stepbox{
+    display: flex;
+    border: 2px solid rgb(185, 66, 66);
+    width: 400px;
+    margin-left: 60px;
+    margin-top: 40px;
+    font-size:large;
+    border-radius: 3px ;
+
+}
+.steps{
+    border-right: 2px solid rgb(185, 66, 66);
+    width: 261px;
+    text-align: center;
+    margin: 0px;
+    padding: auto;
 }

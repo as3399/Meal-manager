@@ -1,43 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import Page2 from './Page2';
-import data from './dishes.json';
+import React from 'react';
 
 function Page1(props) {
-  const [showp1, setShowp1] = useState(true);
-  const [meal1, setMeal1] = useState([]);
-  const [Djson, setDjson ] = useState([]);
-  const [Mydata, setMydata] = useState();
-   
-  useEffect(
-   function  fetch(){
-     setDjson(data.dishes)
-   },[]);
-   
-   function toggle(event) {
-     event.preventDefault();
-     setShowp1(!showp1);
-    }
-    function InputEvent(event){
-      const {id, value} = event.target;
-      setMeal1({...meal1, [id]: value});
-      setMydata({...Mydata, [id]: value});
-    }
-    const Fdata1 = Djson.filter((val) => { return val.availableMeals.includes(meal1.Meal)})
- 
-  return (<><h1>Meal Manager</h1>
-    {showp1 ? <div id="Page1" >
-      <form id="frmP1" >
-        <label >Please Select a Meal:</label><br></br>
-        <select id="Meal"  onChange={InputEvent} required>
-          <option value="0" disabled selected>---</option>
+
+  function InputEvent(event) {
+    const { id, value } = event.target;
+    props.setMeal1({ ...props.meal1, [id]: value});
+    props.setMydata([]);
+    props.setMydata({ ...props.Mydata, [id]: value});
+  }
+
+  function Click(event) {
+    event.preventDefault();
+    props.meal1.Meal && props.meal1.number && props.showp1(1);
+    console.log(props.meal1,"dddddd");
+  }
+
+  return (<>
+    <div id="Page1" >
+      <form id="frmP1" onSubmit={Click} >
+        <label >Please Select a Meal:</label>
+        <select id="Meal" onChange={InputEvent} value={props.meal1.Meal}>
+          <option value="0" selected disabled >---</option>
           <option value="breakfast" >Breakfast</option>
           <option value="lunch" >Lunch</option>
           <option value="dinner" >Dinner</option>
         </select>
         <br></br>
-
         <label >Number of people:</label>
-        <select id="number"  onChange={InputEvent} required>
+        <select id="number" onChange={InputEvent} value={props.meal1.number}>
+          <option value="0" selected disabled>--</option>
           <option value="1" >1</option>
           <option value="2" >2</option>
           <option value="3" >3</option>
@@ -50,13 +41,9 @@ function Page1(props) {
           <option value="10" >10</option>
         </select>
         <br></br>
-        <input type="submit" onClick={toggle} class="btn btn-success " value = "Next"/>
       </form>
-    </div> : <Page2
-             Fdata =  {Fdata1}
-             Mydatastate = {meal1}
-             setMydata={setMydata}
-             Mydata={Mydata} />}
+        <input type="submit" class="btn btn-primary btn-next" onClick={Click} value="Next >" />
+    </div>
   </>
   )
 }
